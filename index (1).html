@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jayruss-Van Tagapan | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f7f7f6;
+      --bg-tertiary: #f0efec;
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a56;
+      --text-tertiary: #9a9a94;
+      --border: rgba(0,0,0,0.10);
+      --border-hover: rgba(0,0,0,0.20);
+      --blue-bg: #E6F1FB;
+      --blue-text: #185FA5;
+      --blue-border: #B5D4F4;
+      --green-bg: #EAF3DE;
+      --green-text: #3B6D11;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-secondary: #252523;
+        --bg-tertiary: #2e2e2b;
+        --text-primary: #f0efec;
+        --text-secondary: #a8a89e;
+        --text-tertiary: #6a6a64;
+        --border: rgba(255,255,255,0.10);
+        --border-hover: rgba(255,255,255,0.20);
+        --blue-bg: #042C53;
+        --blue-text: #85B7EB;
+        --blue-border: #0C447C;
+        --green-bg: #173404;
+        --green-text: #97C459;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+    .avatar {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--blue-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; font-weight: 600;
+      color: var(--blue-text);
+      margin: 0 auto 1.25rem;
+      letter-spacing: -1px;
+    }
+    .hero h1 {
+      font-size: 26px; font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.4px;
+    }
+    .hero .sub {
+      font-size: 15px; color: var(--text-secondary);
+      margin-top: 5px;
+    }
+    .hero .school {
+      font-size: 13px; color: var(--text-tertiary);
+      margin-top: 3px;
+    }
+    .badges {
+      display: flex; gap: 8px; justify-content: center;
+      flex-wrap: wrap; margin-top: 1.25rem;
+    }
+    .badge {
+      font-size: 12px; padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .badge i { font-size: 13px; }
+
+    /* CARDS */
+    .card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--border-hover); }
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-tertiary);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ABOUT GRID */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .info-item {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+    }
+    .info-label {
+      font-size: 11px; color: var(--text-tertiary);
+      margin-bottom: 4px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .info-label i { font-size: 13px; }
+    .info-value {
+      font-size: 14px; font-weight: 500;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    /* PROJECT CARDS */
+    .project-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .project-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .card-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+    }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon.blue { background: var(--blue-bg); }
+    .card-icon.blue i { font-size: 22px; color: var(--blue-text); }
+    .card-icon.green { background: var(--green-bg); }
+    .card-icon.green i { font-size: 22px; color: var(--green-text); }
+    .card-icon.gray { background: var(--bg-secondary); }
+    .card-icon.gray i { font-size: 22px; color: var(--text-tertiary); }
+
+    .card-title { font-size: 17px; font-weight: 600; color: var(--text-primary); }
+    .card-sem { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+    .card-desc { font-size: 14px; color: var(--text-secondary); margin-top: 10px; line-height: 1.65; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .tag {
+      font-size: 11px; padding: 3px 10px;
+      border-radius: 20px; font-weight: 500;
+    }
+    .tag.blue { background: var(--blue-bg); color: var(--blue-text); }
+    .tag.green { background: var(--green-bg); color: var(--green-text); }
+    .tag.gray { background: var(--bg-secondary); color: var(--text-secondary); }
+
+    .card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500;
+      color: var(--blue-text);
+      text-decoration: none;
+      margin-top: 14px;
+      padding: 6px 14px;
+      border: 0.5px solid var(--blue-border);
+      border-radius: 20px;
+      transition: background 0.12s;
+    }
+    .card-link:hover { background: var(--blue-bg); }
+    .card-link i { font-size: 14px; }
+
+    /* VACANT */
+    .vacant-card {
+      background: var(--bg-secondary);
+      border: 0.5px dashed var(--border-hover);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .vacant-text { font-size: 14px; color: var(--text-tertiary); }
+    .vacant-sub { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+
+    /* LINK INPUT */
+    .link-input-area { margin-top: 14px; }
+    .link-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .link-row input {
+      flex: 1; min-width: 180px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      padding: 7px 12px;
+      border: 0.5px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      outline: none;
+    }
+    .link-row input:focus { border-color: var(--blue-text); }
+    .link-row button {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500;
+      padding: 7px 16px;
+      border: 0.5px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.12s;
+      white-space: nowrap;
+    }
+    .link-row button:hover { background: var(--bg-secondary); }
+    .link-hint { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 2rem 1.25rem; }
+      .hero h1 { font-size: 22px; }
+      .container { padding: 1.5rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="avatar">JT</div>
+      <h1>Jayruss-Van Tagapan</h1>
+      <p class="sub">2nd Year Student &mdash; BSIT</p>
+      <p class="school">Davao Del Norte State College</p>
+      <div class="badges">
+        <span class="badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Davao del Norte</span>
+        <span class="badge"><i class="ti ti-school" aria-hidden="true"></i> DNSC</span>
+        <span class="badge"><i class="ti ti-code" aria-hidden="true"></i> Web Developer</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="card">
+      <p class="section-label">About Me</p>
+      <div class="about-grid">
+        <div class="info-item">
+          <div class="info-label"><i class="ti ti-user" aria-hidden="true"></i> Full Name</div>
+          <div class="info-value">Jayruss-Van Tagapan</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label"><i class="ti ti-mail" aria-hidden="true"></i> Email</div>
+          <div class="info-value">tagapan.jayrussvan@dnsc.edu.ph</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label"><i class="ti ti-book" aria-hidden="true"></i> Course</div>
+          <div class="info-value">BSIT — 2nd Year</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label"><i class="ti ti-building" aria-hidden="true"></i> School</div>
+          <div class="info-value">Davao Del Norte State College</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="card">
+      <p class="section-label">Projects This Semester</p>
+
+      <!-- CleanupHub -->
+      <div class="project-card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">CleanupHub</div>
+            <div class="card-sem">1st Semester &mdash; 2nd Year</div>
+          </div>
+          <div class="card-icon blue">
+            <i class="ti ti-trash" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p class="card-desc">A web-based system for managing and coordinating community cleanup activities. Allows users to report, track, and organize cleanup drives in their area.</p>
+        <div class="card-tags">
+          <span class="tag blue">Web System</span>
+          <span class="tag blue">Community</span>
+          <span class="tag blue">Laravel</span>
+        </div>
+        <a class="card-link" href="http://127.0.0.1:8000/" target="_blank" rel="noopener">
+          <i class="ti ti-external-link" aria-hidden="true"></i> View Project
+        </a>
+      </div>
+
+      <!-- E-Reklamo -->
+      <div class="project-card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">E-Reklamo Complaint</div>
+            <div class="card-sem">1st Semester &mdash; 2nd Year</div>
+          </div>
+          <div class="card-icon green">
+            <i class="ti ti-message-report" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p class="card-desc">An online complaint management system that allows citizens to file, track, and follow up on community complaints digitally — reducing paperwork and improving response time.</p>
+        <div class="card-tags">
+          <span class="tag green">Web System</span>
+          <span class="tag green">E-Government</span>
+          <span class="tag green">Complaint System</span>
+        </div>
+        <div id="ereklamo-area">
+          <div class="link-input-area">
+            <div class="link-row">
+              <input type="text" id="linkInput" placeholder="Paste GitHub / live link here..." />
+              <button onclick="saveLink()">Save link</button>
+            </div>
+            <p class="link-hint">&#9432; Waiting for classmate's link — paste it here when received.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vacant slot -->
+      <div class="vacant-card">
+        <div class="card-icon gray" style="width:44px;height:44px;flex-shrink:0;">
+          <i class="ti ti-plus" aria-hidden="true"></i>
+        </div>
+        <div>
+          <div class="vacant-text">Slot available for future project</div>
+          <div class="vacant-sub">Next semester — to be added</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Academic Portfolio &middot; Jayruss-Van Tagapan &middot; DNSC 2025&ndash;2026
+    </footer>
+  </div>
+
+  <script>
+    function saveLink() {
+      const val = document.getElementById('linkInput').value.trim();
+      if (!val) return;
+      const area = document.getElementById('ereklamo-area');
+      area.innerHTML = '<a class="card-link" href="' + val + '" target="_blank" rel="noopener"><i class="ti ti-external-link" aria-hidden="true"></i> View Project</a>';
+    }
+  </script>
+</body>
+</html>
